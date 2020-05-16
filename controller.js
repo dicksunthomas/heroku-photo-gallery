@@ -82,7 +82,7 @@ module.exports.login = (req, res, next) => {
     //creating a random state value
     let state = crypto.randomBytes(16).toString('hex');
     console.log("url: ", config.DXB_API_DOMAIN);
-    console.log("k: ", config.DXB_APP_KEY);
+    console.log("k: ", process.env.DXB_APP_KEY);
     //save state and temporary session for 10 mins
     mycache.set(state, req.sessionID, 600);
 
