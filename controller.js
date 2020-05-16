@@ -23,6 +23,8 @@ async function listImagePathsAsync(token, path){
         json: true,
         body: {"path": path}
     }
+    console.log("url: ", config.DXB_API_DOMAIN);
+    console.log("k: ", config.DXB_APP_KEY);
     try{
         let result= await rp(options);
         //filter response to images only
