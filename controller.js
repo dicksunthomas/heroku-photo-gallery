@@ -23,8 +23,7 @@ async function listImagePathsAsync(token, path){
         json: true,
         body: {"path": path}
     }
-    console.log("url: ", config.DXB_API_DOMAIN);
-    console.log("k: ", config.DXB_APP_KEY);
+    
     try{
         let result= await rp(options);
         //filter response to images only
@@ -82,7 +81,8 @@ module.exports.home = async (req, res, next) => {
 module.exports.login = (req, res, next) => {
     //creating a random state value
     let state = crypto.randomBytes(16).toString('hex');
-
+    console.log("url: ", config.DXB_API_DOMAIN);
+    console.log("k: ", config.DXB_APP_KEY);
     //save state and temporary session for 10 mins
     mycache.set(state, req.sessionID, 600);
 
